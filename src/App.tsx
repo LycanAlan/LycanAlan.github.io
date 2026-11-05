@@ -1,21 +1,31 @@
-import { Button } from "@/components/ui/button"
+import { Approach } from "@/components/approach"
+import { Contact } from "@/components/contact"
+import { Experience } from "@/components/experience"
+import { Hero } from "@/components/hero"
+import { Profiles } from "@/components/profiles"
+import { Record } from "@/components/record"
+import { SiteHeader } from "@/components/site-header"
+import { Work } from "@/components/work"
 
-export function App() {
+export default function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <a
+        href="#work"
+        className="sr-only z-50 rounded-md bg-foreground px-3 py-2 text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+      >
+        Skip to work
+      </a>
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Work />
+        <Record />
+        <Profiles />
+        <Approach />
+        <Experience />
+      </main>
+      <Contact />
+    </>
   )
 }
-
-export default App
