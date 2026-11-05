@@ -14,11 +14,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md">
       <div className="container-page grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <a href="#top" aria-label={`${person.name}, back to top`} className="justify-self-start">
-          <Monogram />
-        </a>
-
-        <nav aria-label="Sections" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Sections" className="col-start-2 hidden items-center gap-1 md:flex">
           {NAV.map((item) => (
             <a
               key={item.href}
@@ -39,15 +35,3 @@ export function SiteHeader() {
   )
 }
 
-/** "AA" on a square of maze floor, with the maze's red posts in the corners. */
-function Monogram() {
-  return (
-    <svg viewBox="0 0 40 40" className="size-10" aria-hidden>
-      <rect width={40} height={40} rx={7} fill="var(--floor)" />
-      {[4, 31].map((x) => [4, 31].map((y) => <rect key={`${x}-${y}`} x={x} y={y} width={5} height={5} fill="var(--red)" />))}
-      <text x={20} y={26} textAnchor="middle" fontSize={15} fontWeight={800} letterSpacing={-0.5} fill="var(--floor-ink)">
-        AA
-      </text>
-    </svg>
-  )
-}
