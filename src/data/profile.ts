@@ -32,6 +32,10 @@ export type Project = {
   when: string
   context?: string
   stack: string[]
+  /** One line for the card. The full summary and facts sit behind "How it works". */
+  tagline: string
+  /** A screenshot or photo in public/projects. Projects without one get a drawn diagram. */
+  picture?: { src: string; alt: string }
   summary: string
   measure?: Measure
   facts: string[]
@@ -42,6 +46,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "Distributed Rate Limiter",
+    tagline: "One rate limit, held across several gateway nodes that share a single count in Redis.",
     when: "Nov 2026",
     flagship: true,
     stack: ["C++17", "epoll", "Redis", "Lua", "Consistent hashing"],
@@ -64,6 +69,7 @@ export const projects: Project[] = [
   },
   {
     name: "PitchLens",
+    tagline: "Answers questions about startup pitch decks, including the pages that are only pictures.",
     when: "Aug 2026",
     flagship: true,
     stack: ["Python", "LangGraph", "FAISS", "BM25", "Gemini Vision", "FastAPI", "Docker"],
@@ -84,6 +90,11 @@ export const projects: Project[] = [
   },
   {
     name: "Micromouse",
+    tagline: "The robot behind the maze up top. It maps an unknown maze on its own, then races the shortest path.",
+    picture: {
+      src: `${import.meta.env.BASE_URL}projects/micromouse.jpg`,
+      alt: "The Micromouse robot: a Raspberry Pi Pico 2 W, two drive wheels and Sharp IR wall sensors on a custom board.",
+    },
     when: "2025",
     context: "3 national 1st places",
     stack: ["C++", "RP2040", "PID control", "Flood fill"],
@@ -104,6 +115,11 @@ export const projects: Project[] = [
   },
   {
     name: "Panchayat",
+    tagline: "AI agents that take a neighbourhood complaint to the right office and keep chasing it.",
+    picture: {
+      src: `${import.meta.env.BASE_URL}projects/panchayat.jpg`,
+      alt: "Panchayat's home page, a register of pursued complaints for Ward 12 in Bengaluru.",
+    },
     when: "Sep 2026",
     context: "AWS Agents for Humans hackathon",
     stack: ["Python", "Strands Agents", "Bedrock AgentCore", "A2A"],
@@ -128,6 +144,11 @@ export const projects: Project[] = [
   },
   {
     name: "Dispute Autopilot",
+    tagline: "Chargeback defence for Razorpay merchants that only fights the disputes worth fighting.",
+    picture: {
+      src: `${import.meta.env.BASE_URL}projects/dispute-autopilot.jpg`,
+      alt: "Dispute Autopilot's live site: 590,540 transactions scored, 118,108 held back for testing.",
+    },
     when: "Sep 2026",
     context: "Razorpay AI Buildathon",
     stack: ["Python", "LightGBM", "Isotonic calibration", "LLM drafting"],
@@ -150,6 +171,11 @@ export const projects: Project[] = [
   },
   {
     name: "VoidCart",
+    tagline: "A full-stack store with an admin dashboard, JWT auth, Cloudinary uploads and Razorpay payments.",
+    picture: {
+      src: `${import.meta.env.BASE_URL}projects/voidcart.jpg`,
+      alt: "VoidCart's storefront home page.",
+    },
     when: "Jul 2026",
     stack: ["MongoDB", "Express", "React", "Node.js", "Redux Toolkit"],
     summary:

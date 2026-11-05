@@ -44,7 +44,7 @@ export function Contact() {
           <button
             type="button"
             onClick={copyEmail}
-            className="inline-flex h-10 items-center gap-2 rounded-md border border-floor-line px-3.5 text-sm font-medium transition-colors hover:bg-white/5"
+            className="btn btn-line h-10 px-3.5 text-sm"
           >
             {copied ? <Check aria-hidden className="size-4 text-red" /> : <Copy aria-hidden className="size-4" />}
             <span aria-live="polite">{copied ? "Copied" : "Copy email"}</span>

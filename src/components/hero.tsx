@@ -2,13 +2,11 @@ import { Download, Mail } from "lucide-react"
 
 import { GitHubIcon, LinkedInIcon } from "@/components/brand-icons"
 import { MazeBoard } from "@/components/maze-board"
-import { buttonVariants } from "@/components/ui/button"
 import { links, person, record } from "@/data/profile"
-import { cn } from "@/lib/utils"
 
 const CREDENTIALS = [
-  "LeetCode Knight",
-  "Codeforces Specialist",
+  "LeetCode Knight · 1882",
+  "Codeforces Specialist · 1406",
   "1,000+ problems",
   "3× national Micromouse champion",
 ]
@@ -23,7 +21,8 @@ export function Hero() {
           Ansari
         </h1>
         <p className="wide mt-7 max-w-[20ch] text-[clamp(1.5rem,3vw,2.125rem)] leading-[1.15] font-semibold tracking-tight text-balance">
-          I build systems, then measure them before I say they work.
+          I build systems, then <span className="text-red">measure them</span> before I say
+          they work.
         </p>
         <p className="mt-5 max-w-[54ch] text-muted-foreground">
           Final-year ECE student at LNMIIT Jaipur,{" "}
@@ -39,26 +38,28 @@ export function Hero() {
           {person.availability}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-2.5">
-          <a href={person.resume} download className={cn(buttonVariants({ size: "lg" }), "h-11 px-4 text-[0.95rem]")}>
-            <Download aria-hidden />
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a href={person.resume} download className="btn btn-solid h-11 px-4">
+            <Download aria-hidden className="size-4" />
             Download résumé
           </a>
-          <a href={`mailto:${person.email}`} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4 text-[0.95rem]")}>
-            <Mail aria-hidden />
+          <a href={`mailto:${person.email}`} className="btn btn-line h-11 px-4">
+            <Mail aria-hidden className="size-4" />
             Email me
           </a>
-          <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" className={cn(buttonVariants({ variant: "ghost", size: "icon-lg" }), "size-11")}>
+          <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub (opens in a new tab)" className="btn btn-line size-11">
             <GitHubIcon className="size-5" />
           </a>
-          <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" className={cn(buttonVariants({ variant: "ghost", size: "icon-lg" }), "size-11")}>
+          <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in a new tab)" className="btn btn-line size-11">
             <LinkedInIcon className="size-5" />
           </a>
         </div>
 
-        <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t pt-5 font-mono text-xs text-muted-foreground">
+        <ul className="mt-10 flex flex-wrap gap-2 font-mono text-xs">
           {CREDENTIALS.map((c) => (
-            <li key={c}>{c}</li>
+            <li key={c} className="rounded-sm border border-foreground/20 px-2 py-1">
+              {c}
+            </li>
           ))}
         </ul>
       </div>

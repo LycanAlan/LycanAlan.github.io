@@ -4,15 +4,13 @@ import { experience } from "@/data/profile"
 export function Experience() {
   return (
     <Section id="experience" title="Experience and leadership">
-      <ul className="border-t">
+      <ul className="grid gap-5 md:grid-cols-2">
         {experience.map((e) => (
-          <li key={e.role} className="grid gap-3 border-b py-8 md:grid-cols-12 md:gap-10">
-            <p className="font-mono text-xs text-muted-foreground md:col-span-3 md:pt-1.5">{e.when}</p>
-            <div className="md:col-span-9">
-              <h3 className="wide text-lg font-bold tracking-tight">{e.role}</h3>
-              <p className="text-sm text-muted-foreground">{e.org}</p>
-              <p className="mt-3 max-w-[62ch]">{e.body}</p>
-            </div>
+          <li key={e.role} className="rounded-xl border border-foreground/15 p-6 sm:p-7">
+            <p className="font-mono text-xs text-red">{e.when}</p>
+            <h3 className="wide mt-3 text-lg font-bold tracking-tight">{e.role}</h3>
+            <p className="text-sm text-muted-foreground">{e.org}</p>
+            <p className="mt-4 text-muted-foreground">{e.body}</p>
           </li>
         ))}
       </ul>
